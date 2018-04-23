@@ -1,0 +1,150 @@
+<div class="container-fluid">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand">
+      <img src="../../assets/images/4G-Clinical-logo.png" width="40" height="40" class="d-inline-block align-top" alt="">
+      <span>4G CLINICAL INTERVIEW</span>
+    </a>
+
+    <div class="collapse navbar-collapse" id="navbarToggler">
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0 col-12">
+        <li class="nav-item col-md-3">
+          <a class="nav-link" href="#GameBand">Start game<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item col-md-3">
+          <a class="nav-link" href="#InstructionsBand">How to play</a>
+        </li>
+        <li class="nav-item col-md-3">
+          <a class="nav-link" href="#DevsBand">Who are we?</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="row Bands" id="HomeBand">
+    <div class="col-md-6"></div>
+    <div class="col-md-6" id="HomeBandTitle">
+      <div>Mars Robot Simulator</div>
+    </div>
+  </div>
+
+  <div class="row Bands" id="GameBand">
+    <div class="col-md-6" id="GameBoard">
+      <div class="row GameBoardGridLine">
+        <div id="04"></div><div id="14"></div><div id="24"></div><div id="34"></div><div id="44"></div>
+      </div>
+      <div class="row GameBoardGridLine">
+        <div id="03"></div><div id="13"></div><div id="23"></div><div id="33"></div><div id="43"></div>
+      </div>
+      <div class="row GameBoardGridLine">
+        <div id="02"></div><div id="12"></div><div id="22"></div><div id="32"></div><div id="42"></div>
+      </div>
+      <div class="row GameBoardGridLine">
+        <div id="01"></div><div id="11"></div><div id="21"></div><div id="31"></div><div id="41"></div>
+      </div>
+      <div class="row GameBoardGridLine">
+        <div id="00"></div><div id="10"></div><div id="20"></div><div id="30"></div><div id="40"></div>
+      </div>
+      <div id="movementValidationError">{{movementValidation}}</div>
+    </div>
+    <div class="col-md-6" id="GameControls">
+      <div class="row">
+        <fieldset>
+          <legend>
+            Initial coordinates <!--<span>(X, Y, orientation)</span>-->
+          </legend>
+          <input type="text" name="initialPointX" [(ngModel)]="initialX" #initialPointX="ngModel" placeholder="X">
+          <input type="text" name="initialPointY" [(ngModel)]="initialY" #initialPointY="ngModel" placeholder="Y">
+          <select name="initialPointF" [(ngModel)]="initialF">
+            <option value="" disabled selected>F</option>
+            <option value="N">North</option>
+            <option value="E">East</option>
+            <option value="S">South</option>
+            <option value="W">West</option>
+          </select>
+          <button (click)="place()" [disabled]="!initialX || !initialY || !initialF">Place</button>
+        </fieldset>
+        <div>
+          <p *ngIf="placementError">{{placementError}}</p>
+        </div>
+      </div>
+      <div class="row">
+        <fieldset>
+          <legend>Game commands</legend>
+          <button (click)="move()" [disabled]="!currentPoint">Move</button>
+          <button (click)="left()" [disabled]="!currentPoint">Left</button>
+          <button (click)="right()" [disabled]="!currentPoint">Right</button>
+          <button (click)="report()" [disabled]="!currentPoint">Report</button>
+        </fieldset>
+      </div>
+      <div class="row" id="RobotPosition" *ngIf="reportRobotPosition">
+        <fieldset>
+          <legend>Robot position</legend>
+          <p *ngIf="reportRobotPosition">{{reportRobotPosition}}</p>
+          <button (click)="closeReport()">Close</button>
+        </fieldset>
+      </div>
+    </div>
+  </div>
+
+  <div class="row Bands" id="InstructionsBand">
+    <div class="col-md-6 InstructionsBandCol">
+      <div class="InstructionsBandHeader"> Set an initial point </div>
+      <p>
+        The first valid command to the robot is a <b>PLACE</b> command, after that, any sequence of commands may be issued, in any order, including another PLACE command.
+      </p>
+      <p>
+        The application should discard all commands in the sequence until a valid <b>PLACE</b> command has been executed.
+      </p>
+      <p>
+        X and Y values are entered manually. They must be an integer value between 0 and 4 to fit the game board dimensions.
+      </p>
+      <p>
+        The robot will be oriented to the direction chosen in the list (NORTH, SOUTH, EAST or WEST)
+      </p>
+    </div>
+    <div class="col-md-6 InstructionsBandCol">
+      <div class="InstructionsBandHeader"> Game commands </div>
+      <p>
+        <b>MOVE</b> will move the toy robot one unit forward in the direction it is currently facing.
+      </p>
+      <p>
+        <b>LEFT</b> and <b>RIGHT</b> will rotate the robot 90 degrees in the specified direction without changing the position of the robot.
+      </p>
+      <p>
+        <b>REPORT</b> will announce the X,Y and F of the robot. This can be in any form, but standard output is sufficient.
+      </p>
+      <p>
+        The toy robot must not fall off the table during movement. This also includes the initial placement of the toy robot.
+      </p>
+      <p>
+        Any move that would cause the robot to fall must be ignored.
+      </p>
+    </div>
+  </div>
+
+  <div class="row Bands" id="DevsBand">
+    <div class="row">
+      <div class="DevsBandCol col-sm-6">
+        <div class="DevsBandColImage" id="Avatar2"></div>
+        <div class="DevsBandColDescription">
+          <h1>Andres Goni</h1>
+          <hr>
+          <p>Front End Developer</p>
+          <p>UI / UX designer</p>
+        </div>
+      </div>
+      <div class="DevsBandCol col-sm-6">
+        <div class="DevsBandColImage" id="Avatar1"></div>
+        <div class="DevsBandColDescription">
+          <h1>Macareux</h1>
+          <hr>
+          <p>Tester</p>
+          <p>Quality assurance manager</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

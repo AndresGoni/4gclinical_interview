@@ -1,0 +1,242 @@
+.container-fluid {
+  z-index: 1;
+  padding-right: 0;
+  padding-left: 0;
+
+  .Bands {
+    min-height: 600px;
+    padding: 0;
+    margin: 0;
+  }
+
+  #HomeBand {
+    background: url('../../assets/images/background1.jpg') no-repeat center center;
+
+    div {
+      height: inherit;
+    }
+
+    #HomeBandTitle {
+      padding: 5%;
+      font-family: "Courier New", Courier, monospace;
+      font-size: xx-large;
+      font-weight: bold;
+      text-align: right;
+      text-shadow: 2px 2px grey;
+      color: white;
+      position: relative;
+
+      div {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        padding: 0 5% 10% 0;
+        width: 100%;
+      }
+    }
+  }
+
+  #GameBand {
+    background: url('../../assets/images/background2.jpg') no-repeat center center;
+    min-height: 400px;
+
+    #GameBoard {
+      padding: 5% 10%;
+      min-height: 300px;
+
+      .GameBoardGridLine {
+        margin: 0;
+
+        div {
+          border: 1px solid white;
+          width: 20%;
+          padding-top: 20%;
+          height: 0;
+          overflow: hidden;
+        }
+      }
+      #movementValidationError {
+        text-align: center;
+        color: red;
+        font-weight: bold;
+        padding: 0 5%;
+      }
+    }
+    #GameControls {
+      padding: 5% 2%;
+      margin: 0;
+
+      .row {
+        height: 120px;
+        margin-bottom: 4%;
+        margin-left: 5%;
+        margin-right: 5%;
+
+        fieldset {
+          width: 100%;
+          border-left: 2px solid white;
+          border-bottom: 2px solid white;
+          border-radius: 15px;
+          padding: 2%;
+
+          legend {
+            color: white;
+            font-weight: bold;
+            text-shadow: 2px 2px grey;
+
+            span {
+              font-size: small;
+            }
+          }
+
+          input, select {
+            width: 20%;
+            height: 30px;
+            border: 0;
+            border-radius: 5px;
+            padding-left: 2%;
+            margin: 0 2%;
+            background-color: rgba(128,128,128, 0.5);
+            color: white;
+            /* Chrome, Firefox, Opera, Safari 10.1+ */
+            &::placeholder {
+              color: white;
+              opacity: 1; /* Firefox */
+            }
+            /* Internet Explorer 10-11 */
+            &:-ms-input-placeholder {color: white;}
+            /* Microsoft Edge */
+            &:-ms-input-placeholder {color: white;}
+          }
+
+          button {
+            width: 20%;
+            height: 30px;
+            margin: 0 2%;
+            border: 2px solid white;
+            border-radius: 10px;
+            background-color: rgba(128,128,128, 0.5);
+            outline: none;
+            box-shadow: 3px 3px grey;
+            color: white;
+            font-weight: bold;
+            font-size: small;
+            text-shadow: 2px 2px grey;
+            cursor: pointer;
+
+            &:disabled {
+              cursor: no-drop;
+            }
+
+            &:hover {
+              background-color: grey;
+            }
+          }
+        }
+
+        div {
+          margin: 2%;
+          p {
+            color: red;
+            font-weight: bold;
+          }
+        }
+      }
+
+      #RobotPosition {
+        height: 150px;
+
+        fieldset {
+          text-align: center;
+          legend {
+            text-align: left;
+          }
+          p {
+            line-height: 1.0;
+            margin-left: 5%;
+            font-weight: bold;
+            color: grey;
+          }
+          button {
+            margin-top: 10px;
+          }
+        }
+      }
+    }
+  }
+
+  #InstructionsBand {
+    background-color: whitesmoke;
+
+    div {
+      position: relative;
+      margin: 0;
+
+      .InstructionsBandHeader {
+        position: relative;
+        background-color: grey;
+        margin: 0 0 5% 0;
+        height: 100px;
+        padding-top: 35px;
+        color: white;
+        text-align: center;
+        font-family: "Courier New", Courier, monospace;
+        font-size: larger;
+        font-weight: bold;
+      }
+    }
+
+    .InstructionsBandCol {
+      padding: 0 5%;
+      p {
+        font-family: "Courier New", Courier, monospace;
+        text-align: justify;
+      }
+    }
+  }
+
+  #DevsBand {
+    padding-bottom: 50px;
+    min-height: 0;
+
+    .row {
+      margin: 0;
+      width: 100%;
+
+      .DevsBandCol {
+        overflow: hidden;
+        margin: 0;
+
+        .DevsBandColImage {
+          margin: 0 auto;
+          margin-top: 10%;
+          height: 40%;
+          width: 40%;
+          border-radius: 50%;
+          padding-top: 40%;
+          height: 0;
+          overflow: hidden;
+        }
+
+        .DevsBandColDescription {
+          background-color: grey;
+          margin: 0 auto;
+          margin-top: -5%;
+          width: 80%;
+          border-radius: 15px;
+          text-align: center;
+          color: white;
+          padding: 5%;
+        }
+        #Avatar2 {
+          background: url('../../assets/images/avatar2.jpg') no-repeat;
+          background-size: 100% 100%;
+        }
+        #Avatar1 {
+          background: url('../../assets/images/avatar1.jpg') no-repeat;
+          background-size: 100% 100%;
+        }
+      }
+    }
+  }
+}
