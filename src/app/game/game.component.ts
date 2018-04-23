@@ -104,10 +104,11 @@ export class GameComponent implements OnInit {
     if (this._gameService.validateCoordinates(this.gameBoard, {x: nextStep.x, y: nextStep.y})) {
       this.paintGameBoard(this.currentPoint, nextStep)
       return nextStep
+    } else {
+      this.highlightBorder(nextStep)
+      this.movementValidation = 'Invalid movement. The requested position is out of the game board.'
+      return point
     }
-    this.highlightBorder(nextStep)
-    this.movementValidation = 'Invalid movement. The requested position is out of the game board.'
-    return point
   }
 
   /**
@@ -174,15 +175,17 @@ export class GameComponent implements OnInit {
   }
 
   /**
-   * Paint the current position on the game board
+   * Place the robot on the game board
    * @param point1: current position
    * @param point2: next position
    */
   paintGameBoard(point1, point2) {
+    /* clear the current position */
     if (point1) {
       document.getElementById(point1.x.toString() + point1.y.toString()).style.backgroundImage = ''
       document.getElementById(point1.x.toString() + point1.y.toString()).style.backgroundSize = ''
     }
+    /* place the robot in the new position */
     if (point2) {
       document.getElementById(point2.x.toString() + point2.y.toString()).style.backgroundImage = this.getRobotImage(point2)
       document.getElementById(point2.x.toString() + point2.y.toString()).style.backgroundSize = '100% 100%'
