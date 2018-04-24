@@ -5,7 +5,7 @@ import * as _ from 'lodash'
 @Component({
   selector: 'app-game',
   templateUrl: './game.component.html',
-  styleUrls: ['./game.component.less', './nav-bar-top.component.less'],
+  styleUrls: ['./game.component.less'],
 })
 export class GameComponent implements OnInit {
 
@@ -28,6 +28,7 @@ export class GameComponent implements OnInit {
     this.currentPoint = null
     this.cleanPlacementForm()
   }
+
 
   /**
    * Set the initial position

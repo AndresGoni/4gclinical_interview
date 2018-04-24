@@ -1,3 +1,5 @@
+@import './nav-bar-top.component.less';
+
 .container-fluid {
   z-index: 1;
   padding-right: 0;
@@ -6,7 +8,7 @@
   .Bands {
     min-height: 600px;
     padding: 0;
-    margin: 0;
+    margin: 1% 5%;
   }
 
   #HomeBand {
@@ -18,7 +20,7 @@
 
     #HomeBandTitle {
       padding: 5%;
-      font-family: "Courier New", Courier, monospace;
+      font-family: Arial, Helvetica, sans-serif;
       font-size: xx-large;
       font-weight: bold;
       text-align: right;
@@ -37,11 +39,11 @@
   }
 
   #GameBand {
-    background: url('../../assets/images/background2.jpg') no-repeat center center;
+    background: url('../../assets/images/background.jpg') no-repeat center center;
     min-height: 400px;
 
     #GameBoard {
-      padding: 5% 10%;
+      padding: 7%;
       min-height: 300px;
 
       .GameBoardGridLine {
@@ -63,14 +65,13 @@
       }
     }
     #GameControls {
-      padding: 5% 2%;
+      padding: 6% 7% 6% 0%;
       margin: 0;
 
       .row {
         height: 120px;
         margin-bottom: 4%;
         margin-left: 5%;
-        margin-right: 5%;
 
         fieldset {
           width: 100%;
@@ -145,6 +146,7 @@
 
       #RobotPosition {
         height: 150px;
+        margin-bottom: 2%;
 
         fieldset {
           text-align: center;
@@ -166,7 +168,6 @@
   }
 
   #InstructionsBand {
-    background-color: whitesmoke;
 
     div {
       position: relative;
@@ -175,21 +176,37 @@
       .InstructionsBandHeader {
         position: relative;
         background-color: grey;
-        margin: 0 0 5% 0;
         height: 100px;
         padding-top: 35px;
+        padding-left: 35px;
         color: white;
-        text-align: center;
-        font-family: "Courier New", Courier, monospace;
-        font-size: larger;
-        font-weight: bold;
+
+        h3 {
+          font-weight: bold;
+        }
+      }
+
+      .InstructionsBandSectionHeader {
+        position: relative;
+        height: 60px;
+        padding-top: 20px;
+        padding-left: 35px;
+        color: grey;
+      }
+
+      hr {
+        margin-top: 0;
+      }
+
+      .InstructionsBandSectionBody {
+        padding: 0 35px;
       }
     }
 
     .InstructionsBandCol {
-      padding: 0 5%;
+      padding: 0;
       p {
-        font-family: "Courier New", Courier, monospace;
+        font-family: Arial, Helvetica, sans-serif;
         text-align: justify;
       }
     }
@@ -198,6 +215,16 @@
   #DevsBand {
     padding-bottom: 50px;
     min-height: 0;
+
+
+    #DevsBandHeader {
+      position: relative;
+      background-color: grey;
+      height: 100px;
+      padding-top: 35px;
+      padding-left: 35px;
+      color: white;
+    }
 
     .row {
       margin: 0;
@@ -239,4 +266,11 @@
       }
     }
   }
+
+  #BottomBand {
+    min-height: 50px;
+    background-color: grey;
+    margin-bottom: 0;
+  }
 }
+

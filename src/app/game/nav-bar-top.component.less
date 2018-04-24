@@ -1,6 +1,6 @@
 .navbar {
   min-height: 100px;
-  margin: 0 5%;
+  padding: 0 5%;
   background-color: transparent !important;
 
   .navbar-brand {
@@ -17,5 +17,28 @@
 
   .navbar-collapse {
     margin-left: 5%;
+
+    ul {
+      li {
+        padding: 0;
+        a {
+          float: right;
+        }
+      }
+    }
+  }
+}
+
+/* collapsed nav bar options floating in the left */
+@media only screen and (max-width: 991px) {
+  .navbar-collapse {
+    margin-left: 5%;
+    ul {
+      li {
+        a {
+          float: left !important;
+        }
+      }
+    }
   }
 }

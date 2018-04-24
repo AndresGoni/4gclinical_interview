@@ -5,19 +5,18 @@
     </button>
     <a class="navbar-brand">
       <img src="../../assets/images/4G-Clinical-logo.png" width="40" height="40" class="d-inline-block align-top" alt="">
-      <span>4G CLINICAL INTERVIEW</span>
+      <span>4g clinical interview</span>
     </a>
-
     <div class="collapse navbar-collapse" id="navbarToggler">
       <ul class="navbar-nav mr-auto mt-2 mt-lg-0 col-12">
-        <li class="nav-item col-md-3">
-          <a class="nav-link" href="#GameBand">Start game<span class="sr-only">(current)</span></a>
+        <li class="nav-item col-md-4">
+          <a class="nav-link" href="#GameBand">Start game</a>
         </li>
-        <li class="nav-item col-md-3">
+        <li class="nav-item col-md-4">
           <a class="nav-link" href="#InstructionsBand">How to play</a>
         </li>
-        <li class="nav-item col-md-3">
-          <a class="nav-link" href="#DevsBand">Who are we?</a>
+        <li class="nav-item col-md-4">
+          <a class="nav-link" href="#DevsBand">About us</a>
         </li>
       </ul>
     </div>
@@ -53,12 +52,12 @@
       <div class="row">
         <fieldset>
           <legend>
-            Initial coordinates <!--<span>(X, Y, orientation)</span>-->
+            Initial coordinates
           </legend>
           <input type="text" name="initialPointX" [(ngModel)]="initialX" #initialPointX="ngModel" placeholder="X">
           <input type="text" name="initialPointY" [(ngModel)]="initialY" #initialPointY="ngModel" placeholder="Y">
           <select name="initialPointF" [(ngModel)]="initialF">
-            <option value="" disabled selected>F</option>
+            <option value="" disabled selected>Orientation</option>
             <option value="N">North</option>
             <option value="E">East</option>
             <option value="S">South</option>
@@ -90,42 +89,54 @@
   </div>
 
   <div class="row Bands" id="InstructionsBand">
-    <div class="col-md-6 InstructionsBandCol">
-      <div class="InstructionsBandHeader"> Set an initial point </div>
-      <p>
-        The first valid command to the robot is a <b>PLACE</b> command, after that, any sequence of commands may be issued, in any order, including another PLACE command.
-      </p>
-      <p>
-        The application should discard all commands in the sequence until a valid <b>PLACE</b> command has been executed.
-      </p>
-      <p>
-        X and Y values are entered manually. They must be an integer value between 0 and 4 to fit the game board dimensions.
-      </p>
-      <p>
-        The robot will be oriented to the direction chosen in the list (NORTH, SOUTH, EAST or WEST)
-      </p>
-    </div>
-    <div class="col-md-6 InstructionsBandCol">
-      <div class="InstructionsBandHeader"> Game commands </div>
-      <p>
-        <b>MOVE</b> will move the toy robot one unit forward in the direction it is currently facing.
-      </p>
-      <p>
-        <b>LEFT</b> and <b>RIGHT</b> will rotate the robot 90 degrees in the specified direction without changing the position of the robot.
-      </p>
-      <p>
-        <b>REPORT</b> will announce the X,Y and F of the robot. This can be in any form, but standard output is sufficient.
-      </p>
-      <p>
-        The toy robot must not fall off the table during movement. This also includes the initial placement of the toy robot.
-      </p>
-      <p>
-        Any move that would cause the robot to fall must be ignored.
-      </p>
+    <div class="col-md-12 InstructionsBandCol">
+      <div class="InstructionsBandHeader">
+        <h3>How to play</h3>
+      </div>
+      <div class="InstructionsBandSectionHeader">
+        <h4> Set an initial point </h4>
+      </div><hr>
+      <div class="InstructionsBandSectionBody">
+        <p>
+          The first valid command to the robot is a <b>PLACE</b> command, after that, any sequence of commands may be issued, in any order, including another PLACE command.
+        </p>
+        <p>
+          The application should discard all commands in the sequence until a valid <b>PLACE</b> command has been executed.
+        </p>
+        <p>
+          X and Y values are entered manually. They must be an integer value between 0 and 4 to fit the game board dimensions.
+        </p>
+        <p>
+          The robot will be oriented to the direction chosen in the list (NORTH, SOUTH, EAST or WEST)
+        </p>
+      </div>
+      <div class="InstructionsBandSectionHeader">
+        <h4> Game commands </h4>
+      </div><hr>
+      <div class="InstructionsBandSectionBody">
+        <p>
+          <b>MOVE</b> will move the toy robot one unit forward in the direction it is currently facing.
+        </p>
+        <p>
+          <b>LEFT</b> and <b>RIGHT</b> will rotate the robot 90 degrees in the specified direction without changing the position of the robot.
+        </p>
+        <p>
+          <b>REPORT</b> will announce the X,Y and F of the robot. This can be in any form, but standard output is sufficient.
+        </p>
+        <p>
+          The toy robot must not fall off the table during movement. This also includes the initial placement of the toy robot.
+        </p>
+        <p>
+          Any move that would cause the robot to fall must be ignored.
+        </p>
+      </div>
     </div>
   </div>
 
   <div class="row Bands" id="DevsBand">
+    <div class="row" id="DevsBandHeader">
+      <h3>About us</h3>
+    </div>
     <div class="row">
       <div class="DevsBandCol col-sm-6">
         <div class="DevsBandColImage" id="Avatar2"></div>
@@ -147,4 +158,6 @@
       </div>
     </div>
   </div>
+
+  <div class="row Bands" id="BottomBand"></div>
 </div>

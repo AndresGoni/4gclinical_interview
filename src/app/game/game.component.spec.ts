@@ -1,5 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing'
-
+import { ComponentFixture, TestBed } from '@angular/core/testing'
 import { GameComponent } from './game.component'
 
 class GameServiceMock {
@@ -32,9 +31,6 @@ describe('GameComponent', () => {
     fixture = TestBed.createComponent(GameComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
-
-    // gameBoard = new GameServiceMock().loadBoard()
-    // gameRobot = new GameServiceMock().loadRobot()
   });
 
   it('should create', () => {
@@ -56,9 +52,7 @@ describe('GameComponent', () => {
     component.initialX = 0
     component.initialY = 0
     component.initialF = 'N'
-
     component.place()
-
     expect(component.currentPoint).toBeDefined()
   })
 
@@ -66,9 +60,7 @@ describe('GameComponent', () => {
     component.initialX = 0
     component.initialY = 0
     component.initialF = 'N'
-
     component.cleanPlacementForm()
-
     expect(component.initialX).toBeNull()
     expect(component.initialY).toBeNull()
     expect(component.initialF).toBeNull()
@@ -76,34 +68,28 @@ describe('GameComponent', () => {
 
   it('rotate robot to the left', () => {
     component.currentPoint = {x: 1, y: 1, f: 'N'}
-
     component.cleanPlacementForm()
-
-    expect(component.currentPoint.x).toBe('1')
-    expect(component.currentPoint.y).toBe('1')
+    expect(component.currentPoint.x).toBe(1)
+    expect(component.currentPoint.y).toBe(1)
     expect(component.currentPoint.f).toBe('W')
   })
 
   it('rotate robot to the right', () => {
     component.currentPoint = {x: 1, y: 1, f: 'N'}
-
     component.cleanPlacementForm()
-
-    expect(component.currentPoint.x).toBe('1')
-    expect(component.currentPoint.y).toBe('1')
+    expect(component.currentPoint.x).toBe(1)
+    expect(component.currentPoint.y).toBe(1)
     expect(component.currentPoint.f).toBe('E')
   })
 
   it('display the position of the robot', () => {
     component.report()
-
     expect(component.reportRobotPosition).toBeDefined()
   })
 
 
   it('get robot image', () => {
     component.getRobotImage({x: 1, y: 1, f: 'N'})
-
     expect(component.reportRobotPosition).toBeDefined()
   })
 });
